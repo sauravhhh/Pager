@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.beeper-container {
+    width: 250px;
+    height: 500px;
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.beeper-screen {
+    background-color: #000;
+    border-radius: 10px;
+    height: 150px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #0f0;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-y: auto;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    border: 2px solid #222;
+}
+
+.beeper-screen::-webkit-scrollbar {
+    width: 5px;
+}
+
+.beeper-screen::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.beeper-screen::-webkit-scrollbar-thumb {
+    background: #0f0;
+    border-radius: 5px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #0a0;
+}
+
+.message-time {
+    color: #0a0;
+    font-size: 12px;
+}
+
+.beeper-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(145deg, #444, #222);
+    border: none;
+    border-radius: 50%;
+    color: #ccc;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 5px 5px 10px #0a0a0a, -5px -5px 10px #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    user-select: text; /* Allow text selection */
+    -webkit-user-select: text; /* For Safari */
+    -moz-user-select: text; /* For Firefox */
+    -ms-user-select: text; /* For IE/Edge */
+}
+
+.control-btn:hover {
+    background: linear-gradient(145deg, #555, #333);
+}
+
+.control-btn:active {
+    box-shadow: inset 2px 2px 5px #0a0a0a, inset -2px -2px 5px #2a2a2a;
+}
+
+.control-btn span {
+    font-size: 8px;
+    margin-top: 2px;
+}
+
+.beeper-keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin-top: auto;
+}
+
+.key-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, #444, #222);
+    border: none;
+    border-radius: 15px;
+    color: #ccc;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 5px 5px 10px #0a0a0a, -5px -5px 10px #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: text; /* Allow text selection */
+    -webkit-user-select: text; /* For Safari */
+    -moz-user-select: text; /* For Firefox */
+    -ms-user-select: text; /* For IE/Edge */
+}
+
+.key-btn:hover {
+    background: linear-gradient(145deg, #555, #333);
+}
+
+.key-btn:active {
+    box-shadow: inset 2px 2px 5px #0a0a0a, inset -2px -2px 5px #2a2a2a;
+}
+
+.key-btn span {
+    font-size: 8px;
+    margin-top: 2px;
+}
+
+.beeper-brand {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.beeper-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: #555;
+}
+
+.status-light {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    margin-right: 5px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.notification {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.emergency-message {
+    color: #ff3333 !important; /* Ensure emergency messages are red */
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    z-index: 100;
+}
+
+@media (max-width: 400px) {
+    .beeper-container {
+        width: 220px;
+        height: 450px;
+    }
+    
+    .beeper-screen {
+        height: 130px;
+    }
+    
+    .control-btn, .key-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+    
+    .key-btn {
+        width: 50px;
+        height: 50px;
+    }
+      }
