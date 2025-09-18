@@ -183,34 +183,23 @@ document.addEventListener('mouseup', () => {
     }
 });
 
-// Prevent context menu during long press
-document.getElementById('power-btn').addEventListener('contextmenu', (e) => {
-    if (isPowerLongPressActive) {
+// Prevent context menu on all buttons
+document.querySelectorAll('.control-btn, .key-btn').forEach(button => {
+    button.addEventListener('contextmenu', (e) => {
         e.preventDefault();
         e.stopPropagation();
         return false;
-    }
+    });
 });
 
-document.getElementById('delete-btn').addEventListener('contextmenu', (e) => {
-    if (isDeleteLongPressActive) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-    }
-});
-
-// Prevent touch callout during long press for mobile
-document.getElementById('power-btn').addEventListener('touchstart', (e) => {
-    if (isPowerLongPressActive) {
-        e.preventDefault();
-    }
-});
-
-document.getElementById('delete-btn').addEventListener('touchstart', (e) => {
-    if (isDeleteLongPressActive) {
-        e.preventDefault();
-    }
+// Prevent touch callout on all buttons for mobile
+document.querySelectorAll('.control-btn, .key-btn').forEach(button => {
+    button.addEventListener('touchstart', (e) => {
+        // Only prevent default if it's a long press button
+        if (button.id === 'power-btn' || button.id === 'delete-btn') {
+            e.preventDefault();
+        }
+    });
 });
 
 // Read current message
