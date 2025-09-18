@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Beeper Device</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="beeper-container">
+        <div class="beeper-brand">VISIPLEX</div>
+        <div class="beeper-status">
+            <div class="status-light"></div>
+            <span>ON</span>
+        </div>
+        <div class="notification" id="notification">New message!</div>
+        
+        <div class="beeper-screen" id="screen">
+            <div id="message-container">
+                <div class="message" id="msg-1">
+                    <div class="message-time">10:25 AM 04/02/2003</div>
+                    <div class="emergency-message">04: MAJOR GAS LEAK AT UNIT 101 ALL FIRE TEAM MEMBERS SHOULD REPORT TO PHONE (201) 408 - 0775.</div>
+                </div>
+                <div class="message" id="msg-2" style="display: none;">
+                    <div class="message-time">09:45 AM</div>
+                    <div>Staff meeting at 11:00 AM in Conference Room B</div>
+                </div>
+                <div class="message" id="msg-3" style="display: none;">
+                    <div class="message-time">08:30 AM</div>
+                    <div>System maintenance scheduled for tonight 10:00 PM - 2:00 AM</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="beeper-controls">
+            <button class="control-btn" id="power-btn">
+                <div>PWR</div>
+                <span>Long Press</span>
+            </button>
+            <button class="control-btn" id="read-btn">
+                <div>READ</div>
+                <span>Short Press</span>
+            </button>
+            <button class="control-btn" id="delete-btn">
+                <div>DEL</div>
+                <span>Long Press</span>
+            </button>
+        </div>
+        
+        <div class="beeper-keypad">
+            <button class="key-btn" id="up-btn">
+                <div>▲</div>
+                <span>Prev</span>
+            </button>
+            <button class="key-btn" id="select-btn">
+                <div>OK</div>
+                <span>Select</span>
+            </button>
+            <button class="key-btn" id="down-btn">
+                <div>▼</div>
+                <span>Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        Made with ❤️ by Sauravhhh
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
