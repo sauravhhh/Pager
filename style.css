@@ -90,11 +90,11 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    user-select: text; /* Allow text selection */
-    -webkit-user-select: text; /* For Safari */
-    -moz-user-select: text; /* For Firefox */
-    -ms-user-select: text; /* For IE/Edge */
-    -webkit-touch-callout: default; /* Allow callout on iOS */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE/Edge */
+    -webkit-touch-callout: none; /* Prevent callout on iOS */
 }
 
 .control-btn:hover {
@@ -133,11 +133,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    user-select: text; /* Allow text selection */
-    -webkit-user-select: text; /* For Safari */
-    -moz-user-select: text; /* For Firefox */
-    -ms-user-select: text; /* For IE/Edge */
-    -webkit-touch-callout: default; /* Allow callout on iOS */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE/Edge */
+    -webkit-touch-callout: none; /* Prevent callout on iOS */
 }
 
 .key-btn:hover {
@@ -248,4 +248,4 @@ body {
         width: 50px;
         height: 50px;
     }
-    }
+        }
