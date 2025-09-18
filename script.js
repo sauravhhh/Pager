@@ -187,10 +187,27 @@ document.addEventListener('mouseup', () => {
 document.getElementById('power-btn').addEventListener('contextmenu', (e) => {
     if (isPowerLongPressActive) {
         e.preventDefault();
+        e.stopPropagation();
+        return false;
     }
 });
 
 document.getElementById('delete-btn').addEventListener('contextmenu', (e) => {
+    if (isDeleteLongPressActive) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }
+});
+
+// Prevent touch callout during long press for mobile
+document.getElementById('power-btn').addEventListener('touchstart', (e) => {
+    if (isPowerLongPressActive) {
+        e.preventDefault();
+    }
+});
+
+document.getElementById('delete-btn').addEventListener('touchstart', (e) => {
     if (isDeleteLongPressActive) {
         e.preventDefault();
     }
